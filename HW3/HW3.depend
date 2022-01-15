@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1642206527 source:c:\users\apple\documents\github\ntu_advanced_c_c-\hw3\main.c
+	<stdio.h>
+	<stdlib.h>
+
