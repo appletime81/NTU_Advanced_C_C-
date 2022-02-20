@@ -3,51 +3,61 @@
 #include <string.h>
 
 
-struct _node {
-    char name[128];
-    char email[128];
-    int phoneNum;
-    struct _node *next;
+
+void insert_func(void);
+
+void sort_func(void);
+
+void delete_func(void);
+
+void display_func(void);
+
+void modify_func(void);
+
+void flashBuffer(void);
+
+struct student {
+    char name[20];
+    int score;
+    struct student
+            *next;
 };
-typedef struct _node node;
-
-node *getnode() {
-    node *p;
-    p = (node *) malloc(sizeof(node));
-
-    if (p == NULL) {
-        printf("?????");
-        exit(1);
-    }
-    return p;
-}
-
-void freenode(node *p) {
-    free(p);
-}
-
-node *insert_node (node *head, node, *ptr, node input) {
-    node *new_node;
-    new_node = getnode();
-    *new_node = input;
-    new_node->next = NULL;
-
-    if (ptr == NULL) {
-        new_node->next = head;
-        head = new_node;
-    } else {
-        if (ptr->next = NULL) {
-            ptr->next = new_node;
-        } else {
-            new_node->next = ptr->next;
-            ptr->next = new_node;
-        }
-    }
-    return head;
-}
-
+struct student *ptr,
+        *head,
+        *current,
+        *prev, *modifyNode;
 
 int main() {
-
-    return 0;
+    char option1;
+    head = (struct student *) malloc(sizeof(struct student));
+    head->next = NULL;
+    while (1) {
+        printf("\n");
+        printf("1");
+        printf("2");
+        printf("3");
+        printf("4");
+        printf("5");
+        option1 = getchar();
+        flashBuffer();
+        switch (option1) {
+            case '1':
+                insert_func();
+                break;
+            case '2':
+                delete_func();
+                break;
+            case '3':
+                modify_func();
+                break;
+            case '4':
+                display_func();
+                break;
+            case '5':
+                printf("In");
+                return 0;
+            default:
+                printf("錯誤選項，請重新選擇n");
+        }
+    }
 }
